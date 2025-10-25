@@ -19,7 +19,6 @@ const result = await tracker.trackBurns(100); // Change this number
 **File:** `.env`
 ```bash
 TARGET_WALLET=your_wallet_address
-TOKEN_ACCOUNT=your_token_account_address
 RPC_URL=your_rpc_endpoint
 SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_ROLE_KEY=your_service_key

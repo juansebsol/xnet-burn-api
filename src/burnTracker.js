@@ -4,8 +4,7 @@ class BurnTracker {
   constructor() {
     this.connection = new Connection(process.env.RPC_URL || 'https://api.mainnet-beta.solana.com');
     this.targetWallet = new PublicKey(process.env.TARGET_WALLET || 'B9SXSuPwpzmYUgk1GRfuW9R9QDMJ6P9SfTybSoawHiLj');
-    this.tokenMint = process.env.TOKEN_MINT;
-    this.tokenAccount = process.env.TOKEN_ACCOUNT; // The actual token account to monitor
+    this.tokenAccount = process.env.TOKEN_ACCOUNT; // Optional: specific token account to monitor
     this.maxRetries = parseInt(process.env.MAX_RPC_RETRIES) || 3;
     this.batchSize = parseInt(process.env.BATCH_SIZE) || 10;
   }
@@ -220,7 +219,7 @@ class BurnTracker {
             from_address: burnResult.fromAccount,
             to_address: null, // Burns don't have a recipient
             amount: burnResult.amount.toString(),
-            token: this.tokenMint || 'XNET',
+            token: 'XNET',
             scrape_time: new Date().toISOString()
           };
         } else {

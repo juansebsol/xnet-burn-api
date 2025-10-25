@@ -77,7 +77,6 @@ npm run burn:once
    - `SUPABASE_SERVICE_ROLE_KEY`
    - `RPC_URL`
    - `TARGET_WALLET`
-   - `TOKEN_MINT` (optional)
 
 2. The workflow runs every 24 hours by default (configurable via `BURN_TRACKER_INTERVAL_HOURS`)
 
