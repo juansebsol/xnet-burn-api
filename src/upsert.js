@@ -72,7 +72,8 @@ async function logBurnRun(runData) {
     newBurns,
     success,
     errorText,
-    executionTimeMs
+    executionTimeMs,
+    notes
   } = runData;
 
   try {
@@ -83,7 +84,8 @@ async function logBurnRun(runData) {
         new_burns: newBurns || 0,
         success: success || false,
         error_text: errorText || null,
-        execution_time_ms: executionTimeMs || 0
+        execution_time_ms: executionTimeMs || 0,
+        notes: notes || null
       });
 
     if (error) {

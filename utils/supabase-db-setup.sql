@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS burn_tracker_logs (
   new_burns INTEGER DEFAULT 0,
   success BOOLEAN NOT NULL,
   error_text TEXT,
-  execution_time_ms INTEGER
+  execution_time_ms INTEGER,
+  notes TEXT
 );
 
 -- Indexes for performance

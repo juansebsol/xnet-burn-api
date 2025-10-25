@@ -22,7 +22,7 @@ function formatBurnEvent(event) {
     from_address: event.from_address,
     to_address: event.to_address,
     amount: event.amount,
-    amountFormatted: formatAmount(event.amount, 9),
+    amountFormatted: formatAmount(event.amount, 8),
     token: event.token || 'XNET',
     scrape_time: formatTimestamp(event.scrape_time)
   };
