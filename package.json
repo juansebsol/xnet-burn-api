@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "burn:once": "node src/runOnce.js",
-    "test:burn": "node src/testBurn.js"
+    "test:burn": "node src/testBurn.js",
+    "import:burns": "node src/importBurns.js"
   },
   "keywords": ["solana", "burn", "tracker", "xnet", "api"],
   "author": "",
