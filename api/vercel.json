@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "api/latest.js": {
+      "maxDuration": 10
+    },
+    "api/history.js": {
+      "maxDuration": 10
+    },
+    "api/all.js": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/latest",
+      "destination": "/api/latest.js"
+    },
+    {
+      "source": "/api/history",
+      "destination": "/api/history.js"
+    },
+    {
+      "source": "/api/all",
+      "destination": "/api/all.js"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+name: XNET Burn Tracker
+
+on:
+  schedule:
+    - cron: '0 */24 * * *'   # Every 24 hours (configurable via BURN_TRACKER_INTERVAL_HOURS)
+  workflow_dispatch:         # Allow manual run
+
+jobs:
+  burn-tracker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # Avoid overlapping runs if one is slow
+    concurrency:
+      group: burn-tracker
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run burn tracker
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RPC_URL: ${{ secrets.RPC_URL }}
+          TARGET_WALLET: ${{ secrets.TARGET_WALLET }}
+          TOKEN_MINT: ${{ secrets.TOKEN_MINT }}
+          BURN_TRACKER_INTERVAL_HOURS: ${{ secrets.BURN_TRACKER_INTERVAL_HOURS || '24' }}
+          MAX_RPC_RETRIES: ${{ secrets.MAX_RPC_RETRIES || '3' }}
+          BATCH_SIZE: ${{ secrets.BATCH_SIZE || '10' }}
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
+        run: npm run burn:once
+
+      # Optional debug artifact
+      - name: Upload run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: burn-tracker-run
+          path: run-output/**
+          if-no-files-found: ignore
+          retention-days: 7

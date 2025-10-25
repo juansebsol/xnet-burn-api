@@ -1,0 +1,22 @@
+[
+  {
+    "signature": "5J7X...abc123",
+    "timestamp": "2025-01-24T10:30:00.000Z",
+    "action": "Burn",
+    "from_address": "B9SXSuPwpzmYUgk1GRfuW9R9QDMJ6P9SfTybSoawHiLj",
+    "to_address": null,
+    "amount": "1000000000",
+    "token": "XNET",
+    "scrape_time": "2025-01-24T10:35:00.000Z"
+  },
+  {
+    "signature": "3K8Y...def456",
+    "timestamp": "2025-01-24T09:15:00.000Z",
+    "action": "Burn",
+    "from_address": "B9SXSuPwpzmYUgk1GRfuW9R9QDMJ6P9SfTybSoawHiLj",
+    "to_address": null,
+    "amount": "500000000",
+    "token": "XNET",
+    "scrape_time": "2025-01-24T09:20:00.000Z"
+  }
+]
