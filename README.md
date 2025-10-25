@@ -78,7 +78,7 @@ npm run burn:once
    - `RPC_URL`
    - `TARGET_WALLET`
 
-2. The workflow runs every 24 hours by default (configurable via `BURN_TRACKER_INTERVAL_HOURS`)
+2. The workflow runs every 24 hours by default
 
 ### 5. API Deployment (Optional)
 
@@ -116,10 +116,8 @@ Deploy to Vercel for public API access:
 
 Environment variables for customization:
 
-- `BURN_TRACKER_INTERVAL_HOURS` - Hours between runs (default: 24)
 - `MAX_RPC_RETRIES` - RPC retry attempts (default: 3)
 - `BATCH_SIZE` - Transaction batch size (default: 10)
-- `LOG_LEVEL` - Logging level (default: info)
 
 ## Architecture
 

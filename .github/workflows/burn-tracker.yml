@@ -34,11 +34,8 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           RPC_URL: ${{ secrets.RPC_URL }}
           TARGET_WALLET: ${{ secrets.TARGET_WALLET }}
-          TOKEN_MINT: ${{ secrets.TOKEN_MINT }}
-          BURN_TRACKER_INTERVAL_HOURS: ${{ secrets.BURN_TRACKER_INTERVAL_HOURS || '24' }}
           MAX_RPC_RETRIES: ${{ secrets.MAX_RPC_RETRIES || '3' }}
           BATCH_SIZE: ${{ secrets.BATCH_SIZE || '10' }}
-          LOG_LEVEL: ${{ secrets.LOG_LEVEL || 'info' }}
         run: npm run burn:once
 
       # Optional debug artifact
