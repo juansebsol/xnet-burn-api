@@ -12,7 +12,7 @@ const { upsertBurnEvents, logBurnRun } = require('./upsert');
     const result = await tracker.trackBurns(100); // Check last 100 transactions
     
     if (result.success) {
-      const { inserted, updated, upserted } = await upsertBurnEvents(result.burnEvents);
+      const { inserted, updated, upserted, skipped } = await upsertBurnEvents(result.burnEvents);
       
       await logBurnRun({
         totalChecked: result.totalChecked,
@@ -22,7 +22,7 @@ const { upsertBurnEvents, logBurnRun } = require('./upsert');
       });
 
       console.log(
-        `Burn tracking OK: checked=${result.totalChecked} burns=${result.burnEvents.length} inserted=${inserted} updated=${updated} (wrote=${upserted})`
+        `Burn tracking OK: checked=${result.totalChecked} burns_found=${result.burnEvents.length} inserted=${inserted} skipped=${skipped} (total_processed=${upserted + skipped})`
       );
     } else {
       await logBurnRun({
